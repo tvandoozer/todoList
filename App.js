@@ -32,7 +32,7 @@ export default function App() {
       <View style={styles.writeTaskWrapper}>
         <TextInput
           style={styles.input}
-          placeholder={"Add a task"}
+          // placeholder={"Add a task"}
           value={task}
           onChangeText={(text) => setTask(text)}
         />
