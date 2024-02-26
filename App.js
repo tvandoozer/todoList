@@ -6,6 +6,8 @@ import {
   Text,
   View,
   Keyboard,
+  SafeAreaView,
+  ScrollView,
 } from "react-native";
 import TaskItem from "./components/TaskItem";
 
@@ -26,7 +28,7 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Add New Item */}
       <Text style={styles.newItem}>New Item</Text>
       <View style={styles.writeTaskWrapper}>
@@ -45,7 +47,7 @@ export default function App() {
       </View>
 
       {/* Tasks */}
-      <View style={styles.tasksWrapper}>
+      <ScrollView style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Todo List</Text>
 
         <View style={styles.items}>
@@ -59,8 +61,8 @@ export default function App() {
             );
           })}
         </View>
-      </View>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

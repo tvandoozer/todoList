@@ -3,35 +3,33 @@ import {
   View,
   Text,
   StyleSheet,
-  CheckBox,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import Checkbox from "expo-checkbox";
 
 const TaskItem = (props) => {
   const [isComplete, setComplete] = useState(false);
 
   return (
-    <ScrollView>
-      <View style={styles.item}>
-        <View style={styles.itemLeft}>
-          <View style={styles.checkboxContainer}>
-            <CheckBox
-              value={isComplete}
-              onValueChange={setComplete}
-              style={styles.checkbox}
-            />
-          </View>
-          <Text style={isComplete ? styles.textCompleted : styles.itemText}>
-            {props.text}
-            <Text style={styles.completeStatus}>{isComplete ? "👍" : ""}</Text>
-          </Text>
+    <View style={styles.item}>
+      <View style={styles.itemLeft}>
+        <View style={styles.checkboxContainer}>
+          <Checkbox
+            value={isComplete}
+            onValueChange={setComplete}
+            style={styles.checkbox}
+          />
         </View>
-        <TouchableOpacity onPress={props.delete} style={styles.delete}>
-          <Text>🗑️</Text>
-        </TouchableOpacity>
+        <Text style={isComplete ? styles.textCompleted : styles.itemText}>
+          {props.text}
+          <Text style={styles.completeStatus}>{isComplete ? "👍" : ""}</Text>
+        </Text>
       </View>
-    </ScrollView>
+      <TouchableOpacity onPress={props.delete} style={styles.delete}>
+        <Text>🗑️</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -59,17 +57,17 @@ const styles = StyleSheet.create({
   },
   itemText: {
     maxWidth: "80%",
-    opacity: "100%",
+    opacity: 1.0,
   },
   textCompleted: {
     maxWidth: "80%",
-    opacity: "50%",
+    opacity: 0.5,
   },
   completeStatus: {
     position: "relative",
     left: 10,
     bottom: 3,
-    opacity: "100%",
+    opacity: 1.0,
   },
   delete: {
     width: 20,
